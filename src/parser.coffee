@@ -4,7 +4,7 @@ fs = require 'fs'
 
 class Parser extends EventEmitter
 
-    constructor: (@filename) ->
+    constructor: (@filename, @options) ->
 
     parse: =>
         @emit 'start', @
@@ -42,31 +42,35 @@ class Parser extends EventEmitter
 
     parseField: (field, buffer) =>
 
+      @options = @options || {}
+
+      emptyVal = @options.emptyVal || null
+
       value = (buffer.toString 'utf-8').replace /^\x20+|\x20+$/g, ''
 
       switch field.type
           when 'C'
-            value = value || null
+            value = value || emptyVal
           when 'N', 'F'
             value = parseFloat (value)
             if isNaN(value)
-              value = null
+              value = emptyVal
           when 'L'
             if value=='Y' or value=='y' or value=='T' or value=='t'
               value = true
             else if value=='N' or value=='n' or value=='F' or value=='f'
               value = false
-            else value = null
+            else value = emptyVal
           when 'D'
             yy = parseInt buffer.slice(0, 4)
             mm = parseInt buffer.slice(4, 6) - 1
             dd = parseInt buffer.slice(6, 8)
             if isNaN(yy)
-              value = null
+              value = emptyVal
             else
               value = new Date(yy, mm, dd)
           else
-            value = value || null
+            value = value || emptyVal
 
       return value
 
