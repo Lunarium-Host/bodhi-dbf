@@ -14,7 +14,7 @@
     "dbf"
   ],
   "author": "brian.gaffney@hotschedules.com",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "prepublish": "cake build"
   },

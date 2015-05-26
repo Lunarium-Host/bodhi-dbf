@@ -1,19 +1,19 @@
-node-dbf
+bodhi-dbf
 ========
 
 This is an event-based dBase file parser for very efficiently reading data from *.dbf files.
 
 To get started, simply install the module using npm:
 
-    npm install node-dbf
+    npm install bodhi-dbf
 
 and then `require` it:
 
-    var Parser = require('node-dbf');
+    var dbf = require('bodhi-dbf')(/* options */);
 
-#Classes
+#Interface
 
-There are two classes - the `Parser` and the `Header`. The `Parser` is the most interesting class.
+There is one class - the `Parser`.
 
 ##Parser
 
@@ -25,9 +25,7 @@ This class is the main interface for reading data from dBase files. It extends `
 
 Creates a new Parser and attaches it to the specified filename.
 
-    var Parser = require('node-dbf');
-    
-    var parser = new Parser('/path/to/my/dbase/file.dbf');
+    var parser = new dbf.Parser('/path/to/my/dbase/file.dbf');
 
 ###parser.on(event, listener)
 
@@ -84,9 +82,9 @@ This event is fired once the dBase parsing is complete and there are no more rec
 
 The following code example illustrates a very simple usage for this module:
 
-    var Parser = require('node-dbf');
-    
-    var parser = new Parser('/path/to/my/dbase/file.dbf');
+    var dbf = require('bodhi-dbf')(/* {options} */)
+
+    var parser = new dbf.Parser('/path/to/my/dbase/file.dbf');
     
     parser.on('start', function(p) {
         console.log('dBase file parsing has started');
@@ -105,9 +103,3 @@ The following code example illustrates a very simple usage for this module:
     });
     
     parser.parse();
-
-#TODO
-
-* Write some tests
-* Add support for field types other than Character and Numeric
-* Use `fs.readStream` instead of `fs.readFile` for increased performance
