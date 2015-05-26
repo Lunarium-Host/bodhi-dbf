@@ -1,0 +1,28 @@
+{
+  "name": "bodhi-dbf",
+  "version": "1.0.0",
+  "description": "pure JS tools for parsing DBF files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bodhi-space/dbf-parser.git"
+  },
+  "keywords": [
+    "dbf"
+  ],
+  "author": "brian.gaffney@hotschedules.com",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "cake build"
+  },
+  "bugs": {
+    "url": "https://github.com/bodhi-space/dbf-parser/issues"
+  },
+  "homepage": "https://github.com/bodhi-space/dbf-parser#readme",
+  "devDependencies": {
+    "coffee-script": "^1.9.2"
+  }
+}
