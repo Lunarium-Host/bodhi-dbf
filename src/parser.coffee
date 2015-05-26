@@ -5,6 +5,7 @@ fs = require 'fs'
 class Parser extends EventEmitter
 
     constructor: (@filename, @options) ->
+      @options = @options || {}
 
     parse: =>
         @emit 'start', @
@@ -41,8 +42,6 @@ class Parser extends EventEmitter
         return record
 
     parseField: (field, buffer) =>
-
-      @options = @options || {}
 
       emptyVal = @options.emptyVal || null
 

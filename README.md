@@ -1,25 +1,26 @@
 bodhi-dbf
 ========
 
-This is an event-based dBase file parser for very efficiently reading data from *.dbf files.
+This is an event-based dBase file parser for very efficiently reading data from *.dbf files based on the
+[node-dbf](https://www.npmjs.com/package/node-dbf) package.
 
-To get started, simply install the module using npm:
+To get started, install the module using npm:
 
     npm install bodhi-dbf
 
-and then `require` it:
+and then `require` it as a function with an options object:
 
     var dbf = require('bodhi-dbf')(/* options */);
 
 #Interface
 
-There is one class - the `Parser`.
+The package presents an interface with one class (the `Parser`) and one function createParser
 
 ##Parser
 
 This class is the main interface for reading data from dBase files. It extends `EventEmitter` and its output is via events.
 
-###new Parser(path)
+###new Parser(path, /* options */)
 
 * path `String` The full path to the .dbf file to parse
 
