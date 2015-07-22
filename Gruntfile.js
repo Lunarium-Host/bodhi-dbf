@@ -1,9 +1,3 @@
-/**
- * Created by walkermellema on 2/11/15.
- */
-/**
- * Created by walkermellema on 1/27/15.
- */
 module.exports = function(grunt) {
 
 	// Add the grunt-mocha-test tasks.

@@ -2,6 +2,16 @@
 Header = require './header'
 fs = require 'fs'
 
+absDate = (year, month, date) ->
+    pad = (num) ->
+      norm = Math.abs(Math.floor(num));
+      if norm < 10
+        norm = '0' + norm
+      else
+        norm = '' + norm
+
+    return new Date(year + '-' + pad(month) + '-' + pad(date) + 'T00:00:00Z')
+
 class Parser extends EventEmitter
 
     constructor: (@filename, @options) ->
@@ -62,12 +72,12 @@ class Parser extends EventEmitter
             else value = emptyVal
           when 'D'
             yy = parseInt buffer.slice(0, 4)
-            mm = parseInt buffer.slice(4, 6) - 1
+            mm = parseInt buffer.slice(4, 6)
             dd = parseInt buffer.slice(6, 8)
             if isNaN(yy)
               value = emptyVal
             else
-              value = new Date(yy, mm, dd)
+              value = absDate(yy, mm, dd)
           else
             value = value || emptyVal
 
