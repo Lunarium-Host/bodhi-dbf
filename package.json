@@ -19,9 +19,9 @@
     "prepublish": "cake build"
   },
   "bugs": {
-    "url": "https://github.com/bodhi-space/dbf-parser/issues"
+    "url": "https://github.com/bodhi-space/bodhi-dbf/issues"
   },
-  "homepage": "https://github.com/bodhi-space/dbf-parser#readme",
+  "homepage": "https://github.com/bodhi-space/bodhi-dbf#readme",
   "devDependencies": {
     "coffee-script": "^1.9.2",
     "chai": "^1.10.0",
