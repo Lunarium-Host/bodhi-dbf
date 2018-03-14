@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 				delete rPkg.devDependencies;
 				delete rPkg.scripts;
 				grunt.file.write(BUILD_DIR + '/package.json', JSON.stringify(rPkg, null, 4));
-				return "";
+				return "echo";
 			}}
 		},
 		sloc: {

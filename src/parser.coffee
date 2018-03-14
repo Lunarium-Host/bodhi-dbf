@@ -27,7 +27,7 @@ class Parser extends EventEmitter
 
             sequenceNumber = 0
 
-            fs.readFile @filename, (err, buffer) =>
+            fs.readFile @filename, 'binary', (err, buffer) =>
                 throw err if err
 
                 loc = @header.start
@@ -55,7 +55,7 @@ class Parser extends EventEmitter
 
       emptyVal = @options.emptyVal || null
 
-      value = (buffer.toString 'utf-8').replace /^\x20+|\x20+$/g, ''
+      value = (buffer.toString 'binary').replace /^\x20+|\x20+$/g, ''
 
       switch field.type
           when 'C'
