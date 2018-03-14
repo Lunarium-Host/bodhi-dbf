@@ -1,10 +1,10 @@
 {
   "name": "bodhi-dbf",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "pure JS tools for parsing DBF files",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "cake build"
   },
   "repository": {
     "type": "git",
@@ -15,9 +15,6 @@
   ],
   "author": "brian.gaffney@hotschedules.com",
   "license": "Apache-2.0",
-  "scripts": {
-    "prepublish": "cake build"
-  },
   "bugs": {
     "url": "https://github.com/bodhi-space/bodhi-dbf/issues"
   },
